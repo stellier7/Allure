@@ -69,6 +69,7 @@ const CONFIG = {
   ],
 
   // ---- Franja ritual (sección de scroll signature) ----
+  // Fotos locales: img: "media/ritual-1.jpg"
   ritualSteps: [
     {
       time: "01",
@@ -97,6 +98,8 @@ const CONFIG = {
   ],
 
   // ---- Galería ----
+  // Fotos: "media/gallery-1.jpg"
+  // Videos: { type: "video", src: "media/gallery-1.mp4" }
   gallery: [
     "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=900&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=900&auto=format&fit=crop",
@@ -114,8 +117,14 @@ const CONFIG = {
   ],
 
   // ---- Fondo del hero ----
+  // Foto: "media/hero.jpg"  |  Video: deja heroImage y pon heroVideo: "media/hero.mp4"
   heroImage:
     "https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=1800&auto=format&fit=crop",
+  heroVideo: "",
+
+  // ---- Foto de la sección Visítanos ----
+  visitImage:
+    "https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=900&auto=format&fit=crop",
 
   // ---- Textos de interfaz ----
   ui: {

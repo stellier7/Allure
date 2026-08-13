@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MAISON VELA — Una casa de belleza privada para cabello, uñas y piel.">
-<title>MAISON VELA — Cabello, Uñas y Piel</title>
+<meta name="description" content="ALLURE — Una casa de belleza privada para cabello, uñas y piel.">
+<title>ALLURE — Cabello, Uñas y Piel</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,7 +28,9 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-bg" id="heroBg">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" hidden></video>
+  </div>
   <div class="hero-content">
     <span class="eyebrow hero-eyebrow" id="heroEyebrow"></span>
     <h1 class="hero-title" id="heroTitle"></h1>
@@ -96,7 +98,7 @@
         <div id="hoursList"></div>
       </div>
       <div class="location-map reveal right">
-        <img id="visitImage" src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=900&auto=format&fit=crop" alt="Interior del salón">
+        <img id="visitImage" src="" alt="Interior del salón">
       </div>
     </div>
   </div>
@@ -171,7 +173,15 @@
   document.getElementById('navCta').target = '_blank';
 
   // ---- Hero ----
-  document.getElementById('heroBg').style.backgroundImage = `url('${c.heroImage}')`;
+  const heroBg = document.getElementById('heroBg');
+  const heroVideo = document.getElementById('heroVideo');
+  if (c.heroVideo) {
+    heroVideo.src = c.heroVideo;
+    heroVideo.hidden = false;
+    heroBg.style.backgroundImage = c.heroImage ? `url('${c.heroImage}')` : '';
+  } else {
+    heroBg.style.backgroundImage = `url('${c.heroImage}')`;
+  }
   document.getElementById('heroEyebrow').textContent = c.heroEyebrow;
   const [line1, line2] = c.heroHeadlineLines;
   document.getElementById('heroTitle').innerHTML = `${line1}<br><em>${line2}</em>`;
@@ -207,11 +217,19 @@
 
   // ---- Gallery ----
   const galleryGrid = document.getElementById('galleryGrid');
-  galleryGrid.innerHTML = c.gallery.map((src, i) => `
+  galleryGrid.innerHTML = c.gallery.map((item, i) => {
+    const src = typeof item === 'string' ? item : item.src;
+    const isVideo = typeof item === 'object'
+      ? item.type === 'video'
+      : /\.(mp4|webm|mov)(\?|$)/i.test(item);
+    const media = isVideo
+      ? `<video src="${src}" muted loop playsinline preload="metadata" autoplay></video>`
+      : `<img src="${src}" alt="${u.galleryImageAlt} ${i + 1}" loading="lazy">`;
+    return `
     <div class="gallery-item reveal ${i % 3 === 0 ? 'tall' : ''}">
-      <img src="${src}" alt="${u.galleryImageAlt} ${i + 1}" loading="lazy">
-    </div>
-  `).join('');
+      ${media}
+    </div>`;
+  }).join('');
 
   // ---- Testimonials ----
   const testiTrack = document.getElementById('testiTrack');
@@ -223,6 +241,7 @@
   `).join('');
 
   // ---- Location ----
+  document.getElementById('visitImage').src = c.visitImage;
   document.getElementById('locAddress').textContent = c.address;
   document.getElementById('hoursList').innerHTML = c.hours.map(h => `
     <div class="hours-row"><span>${h.day}</span><span>${h.time}</span></div>
@@ -269,12 +288,12 @@
   }, { passive: true });
 
   // ---- Hero parallax (JS-driven, works on mobile Safari) ----
-  const heroBg = document.getElementById('heroBg');
+  const heroBgParallax = document.getElementById('heroBg');
   let ticking = false;
   function updateParallax() {
     const y = window.scrollY;
     if (y < window.innerHeight * 1.2) {
-      heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.05)`;
+      heroBgParallax.style.transform = `translateY(${y * 0.35}px) scale(1.05)`;
     }
     ticking = false;
   }
