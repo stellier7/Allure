@@ -74,41 +74,42 @@ const CONFIG = {
       time: "01",
       title: "Agenda adecuadamente",
       text: "Reserva con tiempo para asegurar tu horario ideal y recibir la atención que mereces.",
-      img: "images/IMG_0243.jpeg",
+      img: "images/ritual-01.jpeg",
     },
     {
       time: "02",
       title: "Tómale foto a tus productos",
       text: "Trae fotos de los productos que usas en casa — nos ayuda a personalizar tu tratamiento.",
-      img: "images/IMG_0244.jpeg",
+      img: "images/ritual-02.jpeg",
     },
     {
       time: "03",
       title: "Pensando en hacerte un facial",
       text: "Cuéntanos qué buscas: hidratación, luminosidad o una piel más uniforme. Te orientamos.",
-      img: "images/IMG_0245.jpeg",
+      img: "images/ritual-03.jpeg",
     },
     {
       time: "04",
       title: "No te exfolies en la semana de tu facial",
       text: "Evita exfoliantes fuertes unos días antes para que tu piel reciba el facial en las mejores condiciones.",
-      img: "images/IMG_0246.jpeg",
+      img: "images/ritual-04.jpeg",
     },
     {
       time: "05",
       title: "Guarda el retinol",
       text: "Pausa el retinol antes de tu facial — tu piel lo agradecerá y el resultado será aún mejor.",
-      img: "images/IMG_0247.jpeg",
+      img: "images/ritual-05.jpeg",
     },
   ],
 
   // ---- Galería ----
   gallery: [
-    "images/IMG_0248.jpeg",
-    "images/IMG_0249.jpeg",
-    "images/IMG_0250.jpeg",
-    "images/IMG_0251.jpeg",
-    "images/IMG_0252.jpeg",
+    "images/gallery-01.jpeg",
+    "images/gallery-02.jpeg",
+    "images/gallery-03.jpeg",
+    "images/gallery-04.jpeg",
+    "images/gallery-05.jpeg",
+    "images/gallery-06.jpeg",
   ],
 
   // ---- Testimonios (Google Maps) ----
