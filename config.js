@@ -21,7 +21,7 @@ const CONFIG = {
   whatsappNumber: "50499123052", // código de país + número, sin + ni espacios
   whatsappDefaultMessage: "¡Hola! Me gustaría reservar una cita en ALLURE Comayagua.",
   phoneDisplay: "(+504) 9912-3052",
-  address: "Frente entrada principal Mall Premier, contiguo a La Curacao — Comayagua, Honduras",
+  address: "Calle Saavedra, Barrio Lourdes — Comayagua, Honduras",
   hours: [
     { day: "Lun — Sáb", time: "9:00 AM – 5:00 PM" },
     { day: "Domingo", time: "Cerrado" },
@@ -135,9 +135,9 @@ const CONFIG = {
   shareImage: "images/logo.jpeg",
   siteUrl: "https://stellier7.github.io/Allure",
   heroImage: "images/hero.jpeg",
-  mapsUrl: "https://maps.app.goo.gl/Vu8PJMr21e7DMBc16",
+  mapsUrl: "https://maps.app.goo.gl/k4HRNCh5FCqf3PDq7",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=14.4523522,-87.6383451&hl=es&z=16&output=embed",
+    "https://www.google.com/maps?q=14.448711,-87.63253&hl=es&z=16&output=embed",
 
   // ---- Textos de interfaz ----
   ui: {
@@ -163,7 +163,7 @@ const CONFIG = {
     testimonialsEyebrow: "Reseñas en Google",
     testimonialsTitle: "Lo que dicen nuestras clientas.",
     visitEyebrow: "Encuéntranos",
-    visitTitle: "Visítanos en Mall Premier.",
+    visitTitle: "Visítanos en Comayagua.",
     visitMapTitle: "ALLURE Day Spa & Salon en Google Maps",
     mapsOpenLabel: "Abrir en Google Maps",
     footerEyebrow: "Cuando Quieras",

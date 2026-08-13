@@ -25,6 +25,6 @@ La sección **Visítanos** usa un mapa de Google Maps (no requiere foto).
 
 - Formato: `.jpg` o `.webp`
 - Nombres exactos como en la tabla (minúsculas, con guión)
-- Fotos sugeridas: interior del spa, manicure/pedicure, faciales, productos, fachada en Mall Premier
+- Fotos sugeridas: interior del spa, manicure/pedicure, faciales, productos, fachada del local
 
 Después de subir, el sitio las mostrará automáticamente — no hace falta editar código si usas estos nombres.
