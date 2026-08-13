@@ -183,6 +183,7 @@
 
   // ---- Hero ----
   document.getElementById('heroBg').style.backgroundImage = `url('${c.heroImage}')`;
+  document.getElementById('heroBg').style.backgroundPosition = c.heroImagePosition || 'center';
   document.getElementById('heroEyebrow').textContent = c.heroEyebrow;
   const [line1, line2] = c.heroHeadlineLines;
   document.getElementById('heroTitle').innerHTML = `${line1}<br><em>${line2}</em>`;

@@ -132,6 +132,7 @@ const CONFIG = {
 
   // ---- Imágenes & mapa ----
   heroImage: "images/Hero.png",
+  heroImagePosition: "right center",
   mapsUrl: "https://maps.app.goo.gl/Vu8PJMr21e7DMBc16",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=14.4523522,-87.6383451&hl=es&z=16&output=embed",

@@ -112,7 +112,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; }
 .hero-bg {
   position: absolute; inset: -10% -5%;
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   will-change: transform;
 }
 .hero-bg::after {
