@@ -247,8 +247,9 @@
 
   // ---- Services ----
   const servicesGrid = document.getElementById('servicesGrid');
-  servicesGrid.innerHTML = c.services.map(s => `
-    <div class="service-card reveal">
+  const serviceReveal = ['reveal left', 'reveal', 'reveal right'];
+  servicesGrid.innerHTML = c.services.map((s, i) => `
+    <div class="service-card ${serviceReveal[i] || 'reveal'}">
       <div class="service-label">${s.label}</div>
       <div class="service-name serif">${s.name}</div>
       <div class="service-desc">${s.description}</div>
@@ -471,7 +472,9 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 6) * 70}ms`;
+    if (!el.classList.contains('service-card')) {
+      el.style.transitionDelay = `${(i % 6) * 70}ms`;
+    }
     observer.observe(el);
   });
 })();

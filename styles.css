@@ -199,9 +199,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; }
 .service-card {
   background: var(--ivory);
   padding: 48px 36px;
-  transition: background .4s var(--ease), transform .4s var(--ease);
+  transition: background .4s var(--ease), transform .9s var(--ease), opacity .9s var(--ease);
 }
-.service-card:hover { background: var(--ivory-soft); transform: translateY(-6px); }
+.services-grid .service-card:nth-child(1) { transition-delay: 80ms; }
+.services-grid .service-card:nth-child(2) { transition-delay: 180ms; }
+.services-grid .service-card:nth-child(3) { transition-delay: 280ms; }
+.service-card.in:hover { background: var(--ivory-soft); transform: translateY(-6px); }
 .service-label { color: var(--rose-ember); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
 .service-name { font-family: 'Fraunces', serif; font-size: 26px; margin: 16px 0 14px; }
 .service-desc { font-size: 14.5px; color: #5b4f42; line-height: 1.6; margin-bottom: 22px; }
