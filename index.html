@@ -275,12 +275,15 @@
   // ---- Ritual scroll-driven horizontal (IAGO Work-style) ----
   const ritualSection = document.getElementById('ritual');
   const ritualStage = document.querySelector('.ritual-scroll-stage');
-  const ritualMq = window.matchMedia('(min-width: 861px)');
   const ritualReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let ritualMaxShift = 0;
   let ritualTargetShift = 0;
   let ritualCurrentShift = 0;
   let ritualAnimating = false;
+
+  function ritualScrollEnabled() {
+    return !ritualReduced.matches;
+  }
 
   function measureRitualTrack() {
     ritualMaxShift = Math.max(0, ritualTrack.scrollWidth - ritualStage.clientWidth);
@@ -303,7 +306,7 @@
   }
 
   function ritualTick() {
-    if (!ritualMq.matches || ritualReduced.matches) {
+    if (!ritualScrollEnabled()) {
       ritualAnimating = false;
       return;
     }
@@ -327,13 +330,13 @@
   }
 
   function startRitualAnimation() {
-    if (ritualAnimating || !ritualMq.matches || ritualReduced.matches) return;
+    if (ritualAnimating || !ritualScrollEnabled()) return;
     ritualAnimating = true;
     requestAnimationFrame(ritualTick);
   }
 
   function syncRitualScroll(instant) {
-    if (!ritualMq.matches || ritualReduced.matches) return;
+    if (!ritualScrollEnabled()) return;
     ritualTargetShift = computeRitualTarget();
     if (instant) {
       ritualCurrentShift = ritualTargetShift;
@@ -344,7 +347,7 @@
   }
 
   function setRitualScrollMode() {
-    const driven = ritualMq.matches && !ritualReduced.matches;
+    const driven = ritualScrollEnabled();
     ritualTrack.classList.toggle('ritual-track--driven', driven);
     ritualTrack.style.transform = '';
     ritualTargetShift = 0;
@@ -363,7 +366,6 @@
     syncRitualScroll(true);
   });
   window.addEventListener('scroll', () => syncRitualScroll(false), { passive: true });
-  ritualMq.addEventListener('change', setRitualScrollMode);
   ritualReduced.addEventListener('change', setRitualScrollMode);
   if (ritualTrack.querySelectorAll('img').length) {
     ritualTrack.querySelectorAll('img').forEach(img => {
