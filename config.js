@@ -131,6 +131,9 @@ const CONFIG = {
   ],
 
   // ---- Imágenes & mapa ----
+  logo: "images/logo.jpeg",
+  shareImage: "images/logo.jpeg",
+  siteUrl: "https://stellier7.github.io/Allure",
   heroImage: "images/Hero.png",
   heroImagePosition: "right center",
   mapsUrl: "https://maps.app.goo.gl/Vu8PJMr21e7DMBc16",

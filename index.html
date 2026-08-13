@@ -3,14 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MAISON VELA — Una casa de belleza privada para cabello, uñas y piel.">
-<title>MAISON VELA — Cabello, Uñas y Piel</title>
+<meta name="description" content="ALLURE — Salón de Belleza & Day Spa en Comayagua. Cabello, uñas, faciales, masajes y productos con envío a todo Honduras.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALLURE">
+<meta property="og:title" content="ALLURE — Salón de Belleza & Day Spa">
+<meta property="og:description" content="ALLURE — Salón de Belleza & Day Spa en Comayagua. Cabello, uñas, faciales, masajes y productos con envío a todo Honduras.">
+<meta property="og:image" content="https://raw.githubusercontent.com/stellier7/Allure/main/images/logo.jpeg">
+<meta property="og:image:alt" content="ALLURE Comayagua">
+<meta property="og:url" content="https://stellier7.github.io/Allure/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALLURE — Salón de Belleza & Day Spa">
+<meta name="twitter:description" content="ALLURE — Salón de Belleza & Day Spa en Comayagua. Cabello, uñas, faciales, masajes y productos con envío a todo Honduras.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/stellier7/Allure/main/images/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="apple-touch-icon" href="images/logo.jpeg">
+<title>ALLURE — Salón de Belleza & Day Spa</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav class="nav" id="nav">
-  <div class="nav-logo" id="navLogo"></div>
+  <a href="#" class="nav-logo" id="navLogo" aria-label="ALLURE">
+    <img class="nav-logo-img" id="navLogoImg" alt="" width="44" height="44">
+  </a>
   <div class="nav-links" id="navLinks">
     <a href="#services" id="navServices"></a>
     <a href="#ritual" id="navExperience"></a>
@@ -139,6 +154,36 @@
   document.title = `${c.brandName} — ${c.tagline}`;
   document.querySelector('meta[name="description"]').content = u.metaDescription;
 
+  const siteBase = (c.siteUrl || window.location.origin).replace(/\/$/, '');
+  const absUrl = (path) =>
+    /^https?:\/\//i.test(path) ? path : `${siteBase}/${path.replace(/^\//, '')}`;
+  const shareImage = absUrl(c.shareImage || c.logo);
+  const pageTitle = `${c.brandName} — ${c.tagline}`;
+  const pageUrl = c.siteUrl ? `${siteBase}/` : window.location.href.split('#')[0];
+
+  [
+    ['property', 'og:title', pageTitle],
+    ['property', 'og:description', u.metaDescription],
+    ['property', 'og:image', shareImage],
+    ['property', 'og:url', pageUrl],
+    ['name', 'twitter:title', pageTitle],
+    ['name', 'twitter:description', u.metaDescription],
+    ['name', 'twitter:image', shareImage],
+  ].forEach(([attr, key, value]) => {
+    const selector = attr === 'property'
+      ? `meta[property="${key}"]`
+      : `meta[name="${key}"]`;
+    const el = document.querySelector(selector);
+    if (el) el.content = value;
+  });
+
+  const favicon = document.querySelector('link[rel="icon"]');
+  const touchIcon = document.querySelector('link[rel="apple-touch-icon"]');
+  if (c.logo) {
+    if (favicon) favicon.href = c.logo;
+    if (touchIcon) touchIcon.href = c.logo;
+  }
+
   // ---- Apply color tokens ----
   const root = document.documentElement.style;
   Object.entries(c.colors).forEach(([k, v]) => {
@@ -177,7 +222,17 @@
   document.getElementById('waFloat').setAttribute('aria-label', u.whatsappLabel);
 
   // ---- Nav ----
-  document.getElementById('navLogo').textContent = c.brandNameShort;
+  const navLogo = document.getElementById('navLogo');
+  const navLogoImg = document.getElementById('navLogoImg');
+  navLogo.setAttribute('aria-label', c.brandName);
+  if (c.logo) {
+    navLogoImg.src = c.logo;
+    navLogoImg.alt = c.brandName;
+  }
+  navLogo.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
   document.getElementById('navCta').href = waLink;
   document.getElementById('navCta').target = '_blank';
 
