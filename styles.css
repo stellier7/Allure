@@ -236,6 +236,8 @@ button { font: inherit; cursor: pointer; background: none; border: none; }
     overflow: visible;
     scroll-snap-type: none;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 }
 @media (prefers-reduced-motion: reduce) {

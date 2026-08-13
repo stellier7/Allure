@@ -277,36 +277,81 @@
   const ritualMq = window.matchMedia('(min-width: 861px)');
   const ritualReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let ritualMaxShift = 0;
-  let ritualScrollTicking = false;
+  let ritualTargetShift = 0;
+  let ritualCurrentShift = 0;
+  let ritualAnimating = false;
 
   function measureRitualTrack() {
     ritualMaxShift = Math.max(0, ritualTrack.scrollWidth - ritualStage.clientWidth);
   }
 
-  function updateRitualScroll() {
-    if (!ritualMq.matches || ritualReduced.matches) return;
+  function ritualProgress() {
     const rect = ritualSection.getBoundingClientRect();
     const vh = window.innerHeight;
-    const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
-    const shift = progress * ritualMaxShift;
-    ritualTrack.style.transform = `translate3d(${-shift}px, 0, 0)`;
-    ritualScrollTicking = false;
+    const raw = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
+    // Gentle ease so horizontal motion ramps in/out instead of snapping at the edges.
+    return raw * raw * (3 - 2 * raw);
   }
 
-  function onRitualScroll() {
-    if (!ritualScrollTicking) {
-      requestAnimationFrame(updateRitualScroll);
-      ritualScrollTicking = true;
+  function computeRitualTarget() {
+    return ritualProgress() * ritualMaxShift;
+  }
+
+  function applyRitualTransform(shift) {
+    ritualTrack.style.transform = `translate3d(${-shift}px, 0, 0)`;
+  }
+
+  function ritualTick() {
+    if (!ritualMq.matches || ritualReduced.matches) {
+      ritualAnimating = false;
+      return;
     }
+
+    ritualTargetShift = computeRitualTarget();
+    const delta = ritualTargetShift - ritualCurrentShift;
+
+    if (Math.abs(delta) < 0.35) {
+      ritualCurrentShift = ritualTargetShift;
+    } else {
+      ritualCurrentShift += delta * 0.11;
+    }
+
+    applyRitualTransform(ritualCurrentShift);
+
+    if (Math.abs(ritualTargetShift - ritualCurrentShift) >= 0.35) {
+      requestAnimationFrame(ritualTick);
+    } else {
+      ritualAnimating = false;
+    }
+  }
+
+  function startRitualAnimation() {
+    if (ritualAnimating || !ritualMq.matches || ritualReduced.matches) return;
+    ritualAnimating = true;
+    requestAnimationFrame(ritualTick);
+  }
+
+  function syncRitualScroll(instant) {
+    if (!ritualMq.matches || ritualReduced.matches) return;
+    ritualTargetShift = computeRitualTarget();
+    if (instant) {
+      ritualCurrentShift = ritualTargetShift;
+      applyRitualTransform(ritualCurrentShift);
+      return;
+    }
+    startRitualAnimation();
   }
 
   function setRitualScrollMode() {
     const driven = ritualMq.matches && !ritualReduced.matches;
     ritualTrack.classList.toggle('ritual-track--driven', driven);
     ritualTrack.style.transform = '';
+    ritualTargetShift = 0;
+    ritualCurrentShift = 0;
+    ritualAnimating = false;
     if (driven) {
       measureRitualTrack();
-      updateRitualScroll();
+      syncRitualScroll(true);
     }
   }
 
@@ -314,16 +359,16 @@
   window.addEventListener('resize', () => {
     setRitualScrollMode();
     measureRitualTrack();
-    updateRitualScroll();
+    syncRitualScroll(true);
   });
-  window.addEventListener('scroll', onRitualScroll, { passive: true });
+  window.addEventListener('scroll', () => syncRitualScroll(false), { passive: true });
   ritualMq.addEventListener('change', setRitualScrollMode);
   ritualReduced.addEventListener('change', setRitualScrollMode);
   if (ritualTrack.querySelectorAll('img').length) {
     ritualTrack.querySelectorAll('img').forEach(img => {
       img.addEventListener('load', () => {
         measureRitualTrack();
-        updateRitualScroll();
+        syncRitualScroll(true);
       });
     });
   }
