@@ -14,7 +14,7 @@ https://github.com/stellier7/Allure/tree/main/images)
 
 | Archivo | Uso | Tamaño sugerido |
 |---------|-----|-----------------|
-| `Hero.png` | Fondo principal (parte de arriba) | Horizontal, ~1800 px de ancho |
+| `hero.jpeg` | Fondo principal (parte de arriba) | Horizontal, ~1800 px de ancho |
 | `ritual-01.jpeg` … `ritual-05.jpeg` | Carrusel de consejos (5 fotos) | ~1200 px de ancho |
 | `gallery-01.jpeg` … `gallery-06.jpeg` | Galería (6 fotos) | ~900 px |
 | `logo.jpeg` | Logo (opcional, reserva) | Cuadrado o horizontal |
