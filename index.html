@@ -94,9 +94,10 @@
         <h2 class="section-title" style="margin:16px 0 30px" id="visitTitle"></h2>
         <p id="locAddress" style="margin-bottom:28px;color:#5b4f42;font-size:15px;"></p>
         <div id="hoursList"></div>
+        <a id="mapsLink" class="maps-link" target="_blank" rel="noopener noreferrer"></a>
       </div>
       <div class="location-map reveal right">
-        <img id="visitImage" src="" alt="Interior del salón">
+        <iframe id="visitMap" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -162,8 +163,12 @@
   document.getElementById('testimonialsTitle').textContent = u.testimonialsTitle;
   document.getElementById('visitEyebrow').textContent = u.visitEyebrow;
   document.getElementById('visitTitle').textContent = u.visitTitle;
-  document.getElementById('visitImage').src = c.visitImage;
-  document.getElementById('visitImage').alt = u.visitImageAlt;
+  const visitMap = document.getElementById('visitMap');
+  visitMap.title = u.visitMapTitle;
+  visitMap.src = c.mapsEmbedUrl;
+  const mapsLink = document.getElementById('mapsLink');
+  mapsLink.textContent = u.mapsOpenLabel;
+  mapsLink.href = c.mapsUrl;
   document.getElementById('footerEyebrow').textContent = u.footerEyebrow;
   document.getElementById('footerTitle').textContent = u.footerTitle;
   document.getElementById('footerCta').textContent = u.footerCta;

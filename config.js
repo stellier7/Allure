@@ -74,42 +74,41 @@ const CONFIG = {
       time: "01",
       title: "Agenda adecuadamente",
       text: "Reserva con tiempo para asegurar tu horario ideal y recibir la atención que mereces.",
-      img: "images/ritual-01.jpg",
+      img: "images/IMG_0243.jpeg",
     },
     {
       time: "02",
       title: "Tómale foto a tus productos",
       text: "Trae fotos de los productos que usas en casa — nos ayuda a personalizar tu tratamiento.",
-      img: "images/ritual-02.jpg",
+      img: "images/IMG_0244.jpeg",
     },
     {
       time: "03",
       title: "Pensando en hacerte un facial",
       text: "Cuéntanos qué buscas: hidratación, luminosidad o una piel más uniforme. Te orientamos.",
-      img: "images/ritual-03.jpg",
+      img: "images/IMG_0245.jpeg",
     },
     {
       time: "04",
       title: "No te exfolies en la semana de tu facial",
       text: "Evita exfoliantes fuertes unos días antes para que tu piel reciba el facial en las mejores condiciones.",
-      img: "images/ritual-04.jpg",
+      img: "images/IMG_0246.jpeg",
     },
     {
       time: "05",
       title: "Guarda el retinol",
       text: "Pausa el retinol antes de tu facial — tu piel lo agradecerá y el resultado será aún mejor.",
-      img: "images/ritual-05.jpg",
+      img: "images/IMG_0247.jpeg",
     },
   ],
 
   // ---- Galería ----
   gallery: [
-    "images/gallery-01.jpg",
-    "images/gallery-02.jpg",
-    "images/gallery-03.jpg",
-    "images/gallery-04.jpg",
-    "images/gallery-05.jpg",
-    "images/gallery-06.jpg",
+    "images/IMG_0248.jpeg",
+    "images/IMG_0249.jpeg",
+    "images/IMG_0250.jpeg",
+    "images/IMG_0251.jpeg",
+    "images/IMG_0252.jpeg",
   ],
 
   // ---- Testimonios (Google Maps) ----
@@ -130,9 +129,11 @@ const CONFIG = {
     },
   ],
 
-  // ---- Imágenes ----
-  heroImage: "images/hero.jpg",
-  visitImage: "images/visit.jpg",
+  // ---- Imágenes & mapa ----
+  heroImage: "images/Hero.png",
+  mapsUrl: "https://maps.app.goo.gl/Vu8PJMr21e7DMBc16",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=14.4523522,-87.6383451&hl=es&z=16&output=embed",
 
   // ---- Textos de interfaz ----
   ui: {
@@ -159,7 +160,8 @@ const CONFIG = {
     testimonialsTitle: "Lo que dicen nuestras clientas.",
     visitEyebrow: "Encuéntranos",
     visitTitle: "Visítanos en Mall Premier.",
-    visitImageAlt: "ALLURE Comayagua",
+    visitMapTitle: "ALLURE Day Spa & Salon en Google Maps",
+    mapsOpenLabel: "Abrir en Google Maps",
     footerEyebrow: "Cuando Quieras",
     footerTitle: "Reserva tu cita.",
     footerCta: "Escríbenos por WhatsApp",

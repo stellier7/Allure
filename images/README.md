@@ -14,10 +14,11 @@ https://github.com/stellier7/Allure/tree/main/images)
 
 | Archivo | Uso | Tamaño sugerido |
 |---------|-----|-----------------|
-| `hero.jpg` | Fondo principal (parte de arriba) | Horizontal, ~1800 px de ancho |
-| `visit.jpg` | Sección “Visítanos” | ~900 px |
-| `ritual-01.jpg` … `ritual-05.jpg` | Carrusel de consejos (5 fotos) | ~1200 px de ancho |
-| `gallery-01.jpg` … `gallery-06.jpg` | Galería (6 fotos) | ~900 px |
+| `Hero.png` | Fondo principal (parte de arriba) | Horizontal, ~1800 px de ancho |
+| `IMG_0243.jpeg` … `IMG_0247.jpeg` | Carrusel de consejos (5 fotos) | ~1200 px de ancho |
+| `IMG_0248.jpeg` … `IMG_0252.jpeg` | Galería (5 fotos) | ~900 px |
+
+La sección **Visítanos** usa un mapa de Google Maps (no requiere foto).
 
 ## Consejos
 
