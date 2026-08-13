@@ -239,6 +239,8 @@
   // ---- Hero ----
   document.getElementById('heroBg').style.backgroundImage = `url('${c.heroImage}')`;
   document.getElementById('heroBg').style.backgroundPosition = c.heroImagePosition || 'center';
+  document.getElementById('heroBg').style.backgroundSize = c.heroImageSize || 'cover';
+  document.getElementById('heroBg').style.backgroundRepeat = 'no-repeat';
   document.getElementById('heroEyebrow').textContent = c.heroEyebrow;
   const [line1, line2] = c.heroHeadlineLines;
   document.getElementById('heroTitle').innerHTML = `${line1}<br><em>${line2}</em>`;
@@ -405,7 +407,7 @@
   function updateParallax() {
     const y = window.scrollY;
     if (y < window.innerHeight * 1.2) {
-      heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.05)`;
+      heroBg.style.transform = `translateY(${y * 0.35}px)`;
     }
     ticking = false;
   }
