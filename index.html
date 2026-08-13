@@ -96,7 +96,7 @@
         <div id="hoursList"></div>
       </div>
       <div class="location-map reveal right">
-        <img id="visitImage" src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=900&auto=format&fit=crop" alt="Interior del salón">
+        <img id="visitImage" src="" alt="Interior del salón">
       </div>
     </div>
   </div>
@@ -113,7 +113,10 @@
     <div class="footer-bottom">
       <span id="footerBrand"></span>
       <span id="footerContact"></span>
-      <a id="footerInsta" target="_blank" rel="noopener noreferrer"></a>
+      <span class="footer-social">
+        <a id="footerInsta" target="_blank" rel="noopener noreferrer"></a>
+        <a id="footerFacebook" target="_blank" rel="noopener noreferrer"></a>
+      </span>
     </div>
   </div>
 </footer>
@@ -159,6 +162,7 @@
   document.getElementById('testimonialsTitle').textContent = u.testimonialsTitle;
   document.getElementById('visitEyebrow').textContent = u.visitEyebrow;
   document.getElementById('visitTitle').textContent = u.visitTitle;
+  document.getElementById('visitImage').src = c.visitImage;
   document.getElementById('visitImage').alt = u.visitImageAlt;
   document.getElementById('footerEyebrow').textContent = u.footerEyebrow;
   document.getElementById('footerTitle').textContent = u.footerTitle;
@@ -236,6 +240,13 @@
   const insta = document.getElementById('footerInsta');
   insta.textContent = c.instagramHandle;
   insta.href = c.instagramUrl;
+  const facebook = document.getElementById('footerFacebook');
+  if (c.facebookUrl) {
+    facebook.textContent = u.facebookLabel;
+    facebook.href = c.facebookUrl;
+  } else {
+    facebook.remove();
+  }
 
   // ---- WhatsApp float ----
   document.getElementById('waFloat').href = waLink;

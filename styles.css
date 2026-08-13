@@ -275,6 +275,8 @@ button { font: inherit; cursor: pointer; background: none; border: none; }
   padding-top: 30px; border-top: 1px solid rgba(201,166,107,0.15);
   font-size: 12.5px; flex-wrap: wrap; gap: 16px;
 }
+.footer-social { display: flex; gap: 18px; flex-wrap: wrap;
+}
 
 /* ---------- WhatsApp float ---------- */
 .wa-float {
