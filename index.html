@@ -60,7 +60,9 @@
       <h2 class="section-title" style="color:var(--ivory)" id="ritualTitle"></h2>
     </div>
   </div>
-  <div class="ritual-track" id="ritualTrack"></div>
+  <div class="ritual-scroll-stage">
+    <div class="ritual-track" id="ritualTrack"></div>
+  </div>
 </section>
 
 <!-- GALLERY -->
@@ -204,7 +206,7 @@
   // ---- Ritual strip ----
   const ritualTrack = document.getElementById('ritualTrack');
   ritualTrack.innerHTML = c.ritualSteps.map(r => `
-    <div class="ritual-card reveal">
+    <div class="ritual-card">
       <img src="${r.img}" alt="${r.title}" loading="lazy">
       <div class="ritual-meta">
         <div class="ritual-time serif">${r.time}</div>
@@ -213,6 +215,63 @@
       </div>
     </div>
   `).join('');
+
+  // ---- Ritual scroll-driven horizontal (IAGO Work-style) ----
+  const ritualSection = document.getElementById('ritual');
+  const ritualStage = document.querySelector('.ritual-scroll-stage');
+  const ritualMq = window.matchMedia('(min-width: 861px)');
+  const ritualReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let ritualMaxShift = 0;
+  let ritualScrollTicking = false;
+
+  function measureRitualTrack() {
+    ritualMaxShift = Math.max(0, ritualTrack.scrollWidth - ritualStage.clientWidth);
+  }
+
+  function updateRitualScroll() {
+    if (!ritualMq.matches || ritualReduced.matches) return;
+    const rect = ritualSection.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
+    const shift = progress * ritualMaxShift;
+    ritualTrack.style.transform = `translate3d(${-shift}px, 0, 0)`;
+    ritualScrollTicking = false;
+  }
+
+  function onRitualScroll() {
+    if (!ritualScrollTicking) {
+      requestAnimationFrame(updateRitualScroll);
+      ritualScrollTicking = true;
+    }
+  }
+
+  function setRitualScrollMode() {
+    const driven = ritualMq.matches && !ritualReduced.matches;
+    ritualTrack.classList.toggle('ritual-track--driven', driven);
+    ritualTrack.style.transform = '';
+    if (driven) {
+      measureRitualTrack();
+      updateRitualScroll();
+    }
+  }
+
+  setRitualScrollMode();
+  window.addEventListener('resize', () => {
+    setRitualScrollMode();
+    measureRitualTrack();
+    updateRitualScroll();
+  });
+  window.addEventListener('scroll', onRitualScroll, { passive: true });
+  ritualMq.addEventListener('change', setRitualScrollMode);
+  ritualReduced.addEventListener('change', setRitualScrollMode);
+  if (ritualTrack.querySelectorAll('img').length) {
+    ritualTrack.querySelectorAll('img').forEach(img => {
+      img.addEventListener('load', () => {
+        measureRitualTrack();
+        updateRitualScroll();
+      });
+    });
+  }
 
   // ---- Gallery ----
   const galleryGrid = document.getElementById('galleryGrid');
