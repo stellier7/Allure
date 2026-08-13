@@ -20,7 +20,7 @@ Edit **`config.js` only** for a typical re-skin:
 | Contact | WhatsApp number, phone, address, hours, Instagram |
 | Colors | Hex values in `colors` |
 | Services | Three service cards with menu items |
-| Ritual | Horizontal experience strip (4 steps) |
+| Ritual | Horizontal tips strip (5 steps) |
 | Gallery | Image URLs |
 | Testimonials | Client quotes |
 

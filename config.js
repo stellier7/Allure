@@ -1,5 +1,5 @@
 // ============================================================
-// ALLURE — Salón / Spa de Uñas / Spa
+// ALLURE — Salón de Belleza & Day Spa · Comayagua
 // Edita todo en este archivo para adaptar el sitio.
 // Para un re-skin normal, no debería hacer falta cambiar
 // nada fuera de este archivo.
@@ -11,117 +11,136 @@ const CONFIG = {
   // ---- Marca ----
   brandName: "ALLURE",
   brandNameShort: "ALLURE",
-  tagline: "Cabello. Uñas. Piel.",
-  heroEyebrow: "Una Casa de Belleza Privada",
-  heroHeadlineLines: ["El Ritual", "de Ser Vista"],
+  tagline: "Salón de Belleza & Day Spa",
+  heroEyebrow: "Comayagua, Honduras",
+  heroHeadlineLines: ["Belleza", "que te abraza"],
   heroSub:
-    "Donde cada cita es una ocasión. Cabello, uñas y piel — atendidos con el cuidado que se nota.",
+    "Cabello, uñas y piel en un day spa pensado para ti. Venta de productos de belleza con envíos a todo Honduras.",
 
   // ---- Contacto / Reservas ----
-  whatsappNumber: "50499999999", // código de país + número, sin + ni espacios
-  whatsappDefaultMessage: "¡Hola! Me gustaría reservar una cita en ALLURE.",
-  phoneDisplay: "+504 9999-9999",
-  address: "Blvd. Morazán, Torre Sky, Local 4 — Tegucigalpa",
+  whatsappNumber: "50499123052", // código de país + número, sin + ni espacios
+  whatsappDefaultMessage: "¡Hola! Me gustaría reservar una cita en ALLURE Comayagua.",
+  phoneDisplay: "(+504) 9912-3052",
+  address: "Frente entrada principal Mall Premier, contiguo a La Curacao — Comayagua, Honduras",
   hours: [
-    { day: "Mar — Vie", time: "10:00 AM – 7:00 PM" },
-    { day: "Sábado", time: "9:00 AM – 6:00 PM" },
-    { day: "Dom — Lun", time: "Cerrado" },
+    { day: "Lun — Sáb", time: "9:00 AM – 5:00 PM" },
+    { day: "Domingo", time: "Cerrado" },
   ],
-  instagramHandle: "@allure",
-  instagramUrl: "https://instagram.com",
+  instagramHandle: "@allurecomayagua",
+  instagramUrl: "https://www.instagram.com/allurecomayagua?igsh=aGY2cDYybTB6OGJp",
+  facebookUrl: "https://www.facebook.com/AllureComayagua/",
 
-  // ---- Colores (edita solo los valores hex) ----
+  // ---- Colores (beige / tonos piel) ----
   colors: {
-    noir: "#12100D",
-    noirSoft: "#1C1812",
-    champagne: "#C9A66B",
-    champagneSoft: "#E4D2AC",
-    ivory: "#F6F1E9",
-    ivorySoft: "#EFE7D8",
-    umber: "#2A2018",
-    roseEmber: "#B9694E",
-    smoke: "#948C7F",
+    noir: "#2A2420",
+    noirSoft: "#3D3530",
+    champagne: "#C9A882",
+    champagneSoft: "#E8D5BC",
+    ivory: "#F7F0E8",
+    ivorySoft: "#EDE4D8",
+    umber: "#4A3F35",
+    roseEmber: "#C4A088",
+    smoke: "#9A8E82",
   },
 
   // ---- Servicios ----
   services: [
     {
       label: "Cabello",
-      name: "Estudio de Cabello",
+      name: "Cabello",
       description:
-        "Corte, color y acabado con estilistas formadas en las técnicas más actuales de Miami y Europa.",
-      items: ["Corte y peinado signature", "Balayage y corrección de color", "Barra de blowout", "Peinado para bodas y eventos"],
+        "Cortes, color, tratamientos y acabados para lucir tu mejor versión.",
+      items: ["Corte y peinado", "Color y tratamientos", "Alisados y brillo", "Productos para el cuidado del cabello"],
     },
     {
       label: "Uñas",
-      name: "Atelier de Uñas",
+      name: "Manicure & Pedicure",
       description:
-        "Detalle pintado a mano, acabados de larga duración y un estándar de sanitización que no negociamos.",
-      items: ["Gel-X y builder gel", "Manicura rusa", "Nail art pintado a mano", "Ritual de pedicura spa"],
+        "Manos y pies impecables con técnicas actuales y acabados de larga duración.",
+      items: ["Manicure", "Pedicure", "Uñas en gel", "Nail art y diseños"],
     },
     {
-      label: "Piel",
-      name: "Piel & Spa",
+      label: "Spa",
+      name: "Faciales, Masajes & Spa",
       description:
-        "Faciales y tratamientos corporales diseñados para tu piel, no un menú genérico.",
-      items: ["Facial signature", "Dermaplaning", "Masaje con piedras calientes", "Envoltura corporal reductora"],
+        "Tratamientos faciales, exfoliación corporal y masajes para relajarte y renovar tu piel.",
+      items: ["Faciales", "Exfoliación corporal", "Masajes relajantes", "Productos para piel y cuerpo"],
     },
   ],
 
-  // ---- Franja ritual (sección de scroll signature) ----
+  // ---- Consejos antes de tu cita (franja ritual) ----
   ritualSteps: [
     {
       time: "01",
-      title: "Llegar",
-      text: "Champagne, toallas tibias y una consulta con tu estilista antes de tocar una sola herramienta.",
-      img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop",
+      title: "Agenda adecuadamente",
+      text: "Reserva con tiempo para asegurar tu horario ideal y recibir la atención que mereces.",
+      img: "images/IMG_0243.jpeg",
     },
     {
       time: "02",
-      title: "Atender",
-      text: "Atención plena, una clienta a la vez — sin sillas doble-reservadas ni acabados apresurados.",
-      img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1200&auto=format&fit=crop",
+      title: "Tómale foto a tus productos",
+      text: "Trae fotos de los productos que usas en casa — nos ayuda a personalizar tu tratamiento.",
+      img: "images/IMG_0244.jpeg",
     },
     {
       time: "03",
-      title: "Finalizar",
-      text: "Cada servicio termina igual: revisión en el espejo y tiempo para disfrutar de verdad el resultado.",
-      img: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1200&auto=format&fit=crop",
+      title: "Pensando en hacerte un facial",
+      text: "Cuéntanos qué buscas: hidratación, luminosidad o una piel más uniforme. Te orientamos.",
+      img: "images/IMG_0245.jpeg",
     },
     {
       time: "04",
-      title: "Salir Radiante",
-      text: "Reagendamos a tu salida — confirmación por WhatsApp antes de que llegues a la puerta.",
-      img: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=1200&auto=format&fit=crop",
+      title: "No te exfolies en la semana de tu facial",
+      text: "Evita exfoliantes fuertes unos días antes para que tu piel reciba el facial en las mejores condiciones.",
+      img: "images/IMG_0246.jpeg",
+    },
+    {
+      time: "05",
+      title: "Guarda el retinol",
+      text: "Pausa el retinol antes de tu facial — tu piel lo agradecerá y el resultado será aún mejor.",
+      img: "images/IMG_0247.jpeg",
     },
   ],
 
   // ---- Galería ----
   gallery: [
-    "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=900&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=900&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=900&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1522337094846-8a8195aca3aa?q=80&w=900&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1470259078422-826894b933aa?q=80&w=900&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=900&auto=format&fit=crop",
+    "images/IMG_0248.jpeg",
+    "images/IMG_0249.jpeg",
+    "images/IMG_0250.jpeg",
+    "images/IMG_0251.jpeg",
+    "images/IMG_0252.jpeg",
   ],
 
-  // ---- Testimonios ----
+  // ---- Testimonios (Google Maps) ----
   testimonials: [
-    { quote: "El único salón donde nunca he mirado el reloj.", name: "Andrea M." },
-    { quote: "Reservé por WhatsApp a las 11pm, confirmada antes de despertar.", name: "Fernanda R." },
-    { quote: "Se siente como un spa de hotel, no un salón de strip mall.", name: "Carolina V." },
+    {
+      quote:
+        "Excelente servicio. Muy buena recepción, muy amables — un día antes te avisan. El servicio muy bien.",
+      name: "Kevin E. M.",
+    },
+    {
+      quote:
+        "Fueron muy puntuales, responsables y me atendieron súper bien. Los precios son asequibles y el resultado me encantó.",
+      name: "Keyli C.",
+    },
+    {
+      quote: "Excelente atención, variedad de servicios. ¡El mejor SPA!",
+      name: "Lamar Consultores",
+    },
   ],
 
-  // ---- Fondo del hero ----
-  heroImage:
-    "https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=1800&auto=format&fit=crop",
+  // ---- Imágenes & mapa ----
+  heroImage: "images/Hero.png",
+  mapsUrl: "https://maps.app.goo.gl/Vu8PJMr21e7DMBc16",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=14.4523522,-87.6383451&hl=es&z=16&output=embed",
 
   // ---- Textos de interfaz ----
   ui: {
-    metaDescription: "ALLURE — Una casa de belleza privada para cabello, uñas y piel.",
+    metaDescription:
+      "ALLURE — Salón de Belleza & Day Spa en Comayagua. Cabello, uñas, faciales, masajes y productos con envío a todo Honduras.",
     navServices: "Servicios",
-    navExperience: "Experiencia",
+    navExperience: "Consejos",
     navGallery: "Galería",
     navVisit: "Visítanos",
     navBook: "Reservar",
@@ -131,20 +150,22 @@ const CONFIG = {
     heroSecondary: "Ver servicios",
     heroScroll: "Desliza",
     servicesEyebrow: "Lo Que Hacemos",
-    servicesTitle: "Tres salas, un solo estándar.",
-    ritualEyebrow: "La Experiencia",
-    ritualTitle: "Cada visita, el mismo ritual.",
-    galleryEyebrow: "Dentro de la Casa",
-    galleryTitle: "Un espacio hecho para bajar el ritmo.",
+    servicesTitle: "Cabello, uñas, spa y productos.",
+    ritualEyebrow: "Antes de Tu Cita",
+    ritualTitle: "Prepárate para brillar.",
+    galleryEyebrow: "Nuestro Espacio",
+    galleryTitle: "Conoce ALLURE en Comayagua.",
     galleryImageAlt: "Imagen de galería",
-    testimonialsEyebrow: "De Boca en Boca",
-    testimonialsTitle: "Lo que repiten nuestras clientas.",
+    testimonialsEyebrow: "Reseñas en Google",
+    testimonialsTitle: "Lo que dicen nuestras clientas.",
     visitEyebrow: "Encuéntranos",
-    visitTitle: "Visita la casa.",
-    visitImageAlt: "Interior del salón",
+    visitTitle: "Visítanos en Mall Premier.",
+    visitMapTitle: "ALLURE Day Spa & Salon en Google Maps",
+    mapsOpenLabel: "Abrir en Google Maps",
     footerEyebrow: "Cuando Quieras",
     footerTitle: "Reserva tu cita.",
     footerCta: "Escríbenos por WhatsApp",
     whatsappLabel: "WhatsApp",
+    facebookLabel: "Facebook",
   },
 };
